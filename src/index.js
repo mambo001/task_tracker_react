@@ -3,9 +3,14 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { TasksStateContextProvider } from "./contexts/TaskContext";
 
-const insertionPoint = document.createElement("div");
-insertionPoint.setAttribute("id", "insertionPoint");
-document.body.prepend(insertionPoint);
+const link = document.createElement("link");
+link.href = "https://fonts.googleapis.com/icon?family=Material+Icons";
+link.rel = "stylesheet";
+document.head.append(link)
+
+const taskTracker = document.createElement("div");
+document.body.append(taskTracker);
+taskTracker.id = "taskTracker"
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,6 +18,5 @@ ReactDOM.render(
       <App />
     </TasksStateContextProvider>
   </React.StrictMode>,
-  // document.getElementById('root')
-  insertionPoint
+  taskTracker
 );
